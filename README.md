@@ -63,14 +63,30 @@ pnpm preview
 src/
 ├── assets/          # Static assets
 ├── components/      # Reusable components
+│   └── ui/         # Shadcn UI components
 ├── constants/       # Constants and configurations
 ├── context/         # React Context providers
 ├── hooks/           # Custom React hooks
+├── lib/             # Core utilities and shared libraries
+│   └── utils/      # Utility functions (e.g., cn.ts)
 ├── routes/          # Route components
 ├── state/           # Redux store and slices
 ├── types/           # TypeScript type definitions
-├── utils/           # Utility functions
 └── App.tsx          # Root component
+```
+
+## 🔧 Path Aliases
+
+The project uses the following path aliases for better imports:
+
+```typescript
+{
+  "@/*": "./src/*",
+  "@/components/*": "./src/components/*",
+  "@/lib/*": "./src/lib/*",
+  "@/lib/utils/*": "./src/lib/utils/*",
+  "@/hooks/*": "./src/hooks/*"
+}
 ```
 
 ## 🛠️ Development Guidelines
@@ -89,6 +105,7 @@ src/
 // ComponentName.tsx
 import { FC } from 'react'
 import type { ComponentNameProps } from '@/types'
+import { cn } from '@/lib/utils'
 
 export const ComponentName: FC<ComponentNameProps> = ({ prop1, prop2 }) => {
   // Early returns
@@ -128,6 +145,7 @@ export const ComponentName: FC<ComponentNameProps> = ({ prop1, prop2 }) => {
 - `eslint.config.js` - ESLint configuration
 - `prettier.config.cjs` - Prettier configuration
 - `.commitlintrc.json` - Commit message linting
+- `components.json` - Shadcn UI configuration
 
 ## 📝 Git Workflow
 
@@ -149,6 +167,18 @@ git commit -m "feat: add new feature"
 ```bash
 git push origin feature/your-feature
 ```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
